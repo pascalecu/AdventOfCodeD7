@@ -1,0 +1,47 @@
+* text=auto eol=lf
+
+# Git metadata
+.gitattributes text eol=lf
+.gitignore     text eol=lf
+.editorconfig  text eol=lf
+
+# Delphi 7 source (CRLF)
+*.pas text eol=crlf
+*.dpr text eol=crlf
+*.dpk text eol=crlf
+*.inc text eol=crlf
+*.dfm text eol=crlf
+*.rc  text eol=crlf
+*.cfg text eol=crlf
+*.dof text eol=crlf
+*.bpg text eol=crlf
+
+# Windows scripts
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Unix files (LF)
+*.sh text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.json text eol=lf
+*.xml text eol=lf
+
+# Binary files
+*.dcu binary
+*.exe binary
+*.dll binary
+*.bpl binary
+*.dcp binary
+*.res binary
+*.ico binary
+*.bmp binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.zip binary
+*.7z binary
+*.pdf binary
