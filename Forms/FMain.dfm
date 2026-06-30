@@ -1,6 +1,6 @@
 object MainForm: TMainForm
-  Left = 192
-  Top = 114
+  Left = 393
+  Top = 156
   Width = 800
   Height = 600
   Caption = 'Advent of Code'

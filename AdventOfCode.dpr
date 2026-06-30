@@ -2,7 +2,7 @@ program AdventOfCode;
 
 uses
   Forms,
-  TMainForm in 'Forms\TMainForm.pas' {MainForm};
+  FMain in 'Forms\FMain.pas' {MainForm};
 
 {$R *.res}
 
