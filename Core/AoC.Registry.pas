@@ -15,6 +15,10 @@ function GetAvailableDayCount(Year: Integer): Integer;
 
 procedure GetAvailableDays(Year: Integer; var Days: array of Integer);
 
+function GetAvailableYearCount: Integer;
+
+procedure GetAvailableYears(var Years: array of Integer);
+
 implementation
 
 uses
@@ -42,6 +46,23 @@ end;
 function IsRegistered(Year, Day: Integer): Boolean;
 begin
    Result := ValidYear(Year) and ValidDay(Day) and Assigned(Registry[Year, Day]);
+end;
+
+function HasAnySolution(Year: Integer): Boolean;
+var
+   D: Integer;
+begin
+   Result := False;
+
+   if not ValidYear(Year) then
+		Exit;
+
+	for D := MinDay to MaxDay do
+      if Assigned(Registry[Year, D]) then
+      begin
+         Result := True;
+         Exit;
+      end;
 end;
 
 procedure RegisterDay(Year, Day: Integer; C: TAoCDayClass);
@@ -79,7 +100,7 @@ begin
       Exit;
 
    for D := MinDay to MaxDay do
-      if Assigned(Registry[Year, D]) then
+      if IsRegistered(Year, D) then
          Inc(Result);
 end;
 
@@ -93,11 +114,46 @@ begin
       Exit;
 
    for D := MinDay to MaxDay do
-      if (Assigned(Registry[Year, D])) and (Index <= High(Days)) then
-      begin
-         Days[Index] := D;
-         Inc(Index);
-      end;
+   begin
+      if not IsRegistered(Year, D) then
+         Continue;
+
+      if Index > High(Days) then
+         Exit;
+
+      Days[Index] := D;
+      Inc(Index);
+   end;
+end;
+
+function GetAvailableYearCount: Integer;
+var
+   Y: Integer;
+begin
+   Result := 0;
+
+   for Y := MinYear to MaxYear do
+      if HasAnySolution(Y) then
+         Inc(Result);
+end;
+
+procedure GetAvailableYears(var Years: array of Integer);
+var
+   Y, D, Index: Integer;
+begin
+   Index := 0;
+
+   for Y := MinYear to MaxYear do
+   begin
+      if not HasAnySolution(Y) then
+         Continue;
+
+      if Index > High(Years) then
+         Exit;
+
+      Years[Index] := Y;
+      Inc(Index);
+   end;
 end;
 
 initialization
