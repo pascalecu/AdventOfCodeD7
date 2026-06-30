@@ -1,8 +1,8 @@
 object MainForm: TMainForm
-  Left = 393
-  Top = 156
+  Left = 1075
+  Top = 517
   Width = 800
-  Height = 600
+  Height = 470
   Caption = 'Advent of Code'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET

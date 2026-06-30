@@ -1,13 +1,14 @@
 program AdventOfCode;
 
 uses
-  Forms,
-  FMain in 'Forms\FMain.pas' {MainForm};
+   Forms,
+   FMain in 'Forms\FMain.pas';
 
 {$R *.res}
 
 begin
-  Application.Initialize;
-  Application.CreateForm(TMainForm, MainForm);
-  Application.Run;
+   Application.Initialize;
+   Application.CreateForm(TMainForm, MainForm);
+   Application.Run;
 end.
+

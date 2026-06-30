@@ -3,7 +3,8 @@ program TestRunner;
 uses
   Forms,
   GUITestRunner,
-  TestFramework;
+  TestFramework,
+  AoC.Types in '..\Core\AoC.Types.pas';
 
 {$R *.res}
 

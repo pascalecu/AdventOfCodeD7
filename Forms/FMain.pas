@@ -3,22 +3,20 @@ unit FMain;
 interface
 
 uses
-  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs;
+   Classes, Controls, Forms, StdCtrls;
 
 type
-  TMainForm = class(TForm)
-  private
-    { Private declarations }
-  public
-    { Public declarations }
-  end;
+   TMainForm = class(TForm)
+   private
+   public
+   end;
 
 var
-  MainForm: TMainForm;
+   MainForm: TMainForm;
 
 implementation
 
 {$R *.dfm}
 
 end.
+
