@@ -50,10 +50,19 @@ begin
 end;
 
 procedure TTestDay2025_01.TestPart2;
-var
-	Input: string;
+const
+	Input =
+		'L68'#10 +
+		'L30'#10 +
+		'R48'#10 +
+		'L5'#10 +
+		'R60'#10 +
+		'L55'#10 +
+		'L1'#10 +
+		'L99'#10 +
+		'R14'#10 +
+		'L82';
 begin
-	Input := 'abcdef';
    CheckEquals('6', FDay.Part2(Input));
 end;
 
