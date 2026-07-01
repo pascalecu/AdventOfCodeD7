@@ -52,7 +52,7 @@ end;
 
 procedure TTestDay2025_02.TestPart1Example;
 begin
-   CheckEquals('1227775554', FDay.Part1(ExampleInput));
+	CheckEquals('1227775554', FDay.Part1(ExampleInput));
 end;
 
 procedure TTestDay2025_02.TestPart2IndividualRanges;
