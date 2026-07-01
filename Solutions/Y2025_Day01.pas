@@ -24,6 +24,14 @@ begin
       Inc(Result, 100);
 end;
 
+procedure ApplyStep(var Pos: Integer; Dir: Char; Steps: Integer);
+begin
+   if Dir = 'R' then
+      Pos := Normalize(Pos + Steps)
+   else
+      Pos := Normalize(Pos - Steps);
+end;
+
 function CountCrosings(StartPos, Steps: Integer; Dir: Char): Integer;
 var
    EndPos, P, I: Integer;
@@ -44,7 +52,7 @@ begin
    begin
       for I := 1 to Steps do
       begin
-         P := P - 1;
+         Dec(P);
          P := Normalize(P);
          if P = 0 then
             Inc(Result);
@@ -52,14 +60,12 @@ begin
    end;
 end;
 
-function Solve(const Input: string; const Part: Integer): Integer;
+function SolvePart1(const Input: string): Integer;
 var
    SL: TStringList;
-   I: Integer;
+   I, Pos, Steps: Integer;
    Line: string;
    Dir: Char;
-   Steps: Integer;
-   Pos: Integer;
 begin
    Result := 0;
    Pos := 50;
@@ -76,25 +82,39 @@ begin
          Dir := Line[1];
          Steps := StrToInt(Copy(Line, 2, Length(Line)));
 
-         if Part = 1 then
-         begin
-            if Dir = 'R' then
-               Pos := Normalize(Pos + Steps)
-            else
-               Pos := Normalize(Pos - Steps);
+         ApplyStep(Pos, Dir, Steps);
+         if Pos = 0 then
+            Inc(Result);
+      end;
+   finally
+      SL.Free;
+   end;
+end;
 
-            if Pos = 0 then
-               Inc(Result);
-         end
-         else
-         begin
-            Inc(Result, CountCrosings(Pos, Steps, Dir));
+function SolvePart2(const Input: string): Integer;
+var
+   SL: TStringList;
+   I, Pos, Steps: Integer;
+   Line: string;
+   Dir: Char;
+begin
+   Result := 0;
+   Pos := 50;
 
-            if Dir = 'R' then
-               Pos := Normalize(Pos + Steps)
-            else
-               Pos := Normalize(Pos - Steps);
-         end;
+   SL := TStringList.Create;
+   try
+      SL.Text := Input;
+      for I := 0 to SL.Count - 1 do
+      begin
+         Line := Trim(SL[I]);
+         if Line = '' then
+            Continue;
+
+         Dir := Line[1];
+         Steps := StrToInt(Copy(Line, 2, Length(Line)));
+
+         Inc(Result, CountCrosings(Pos, Steps, Dir));
+         ApplyStep(Pos, Dir, Steps);
       end;
    finally
       SL.Free;
@@ -103,12 +123,12 @@ end;
 
 function TDay2025_01.Part1(const Input: string): string;
 begin
-   Result := IntToStr(Solve(Input, 1));
+   Result := IntToStr(SolvePart1(Input));
 end;
 
 function TDay2025_01.Part2(const Input: string): string;
 begin
-   Result := IntToStr(Solve(Input, 2));
+   Result := IntToStr(SolvePart2(Input));
 end;
 
 initialization
