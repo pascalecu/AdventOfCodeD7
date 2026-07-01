@@ -34,34 +34,14 @@ end;
 
 procedure TTestDay2025_01.TestPart1;
 const
-	Input =
-		'L68'#10 +
-		'L30'#10 +
-		'R48'#10 +
-		'L5'#10 +
-		'R60'#10 +
-		'L55'#10 +
-		'L1'#10 +
-		'L99'#10 +
-		'R14'#10 +
-		'L82';
+   Input = 'L68'#10 + 'L30'#10 + 'R48'#10 + 'L5'#10 + 'R60'#10 + 'L55'#10 + 'L1'#10 + 'L99'#10 + 'R14'#10 + 'L82';
 begin
-	CheckEquals('3', FDay.Part1(Input));
+   CheckEquals('3', FDay.Part1(Input));
 end;
 
 procedure TTestDay2025_01.TestPart2;
 const
-	Input =
-		'L68'#10 +
-		'L30'#10 +
-		'R48'#10 +
-		'L5'#10 +
-		'R60'#10 +
-		'L55'#10 +
-		'L1'#10 +
-		'L99'#10 +
-		'R14'#10 +
-		'L82';
+   Input = 'L68'#10 + 'L30'#10 + 'R48'#10 + 'L5'#10 + 'R60'#10 + 'L55'#10 + 'L1'#10 + 'L99'#10 + 'R14'#10 + 'L82';
 begin
    CheckEquals('6', FDay.Part2(Input));
 end;
