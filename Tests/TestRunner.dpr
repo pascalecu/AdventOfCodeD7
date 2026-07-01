@@ -1,14 +1,15 @@
 program TestRunner;
 
 uses
-  Forms,
-  GUITestRunner,
-  TestFramework,
-  AoC.Types in '..\Core\AoC.Types.pas';
+   Forms,
+   GUITestRunner,
+   TestFramework,
+   TestDay2025_01 in 'TestDay2025_01.pas';
 
 {$R *.res}
 
 begin
-  Application.Initialize;
-  GUITestRunner.RunRegisteredTests;
+   Application.Initialize;
+   GUITestRunner.RunRegisteredTests;
 end.
+

@@ -34,7 +34,7 @@ object MainForm: TMainForm
     Width = 384
     Height = 240
     BorderStyle = bsNone
-    Enabled = False
+    ReadOnly = True
     TabOrder = 0
   end
   object cbbYear: TComboBox
