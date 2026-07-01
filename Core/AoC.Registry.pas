@@ -139,7 +139,7 @@ end;
 
 procedure GetAvailableYears(var Years: array of Integer);
 var
-   Y, D, Index: Integer;
+   Y, Index: Integer;
 begin
    Index := 0;
 
@@ -155,9 +155,6 @@ begin
       Inc(Index);
    end;
 end;
-
-initialization
-   InitRegistry;
 
 end.
 
